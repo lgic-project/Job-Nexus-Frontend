@@ -23,7 +23,7 @@ const Welcome = ({ navigation }) => {
               position: "absolute",
               top: 10,
               transform: [
-                { translateX: 20 },
+                { translateX: 0 },
                 { translateY: 50 },
                 { rotate: "-15deg" },
               ],
@@ -119,7 +119,7 @@ const Welcome = ({ navigation }) => {
                 marginVertical: 4,
               }}
             >
-              Connect with each other with chatting
+              Seamless job search and recruitment platform for everyone.
             </Text>
             <Text
               style={{
@@ -127,18 +127,46 @@ const Welcome = ({ navigation }) => {
                 color: COLORS.white,
               }}
             >
-              Calling, Enjoy Safe and private texting
+              Effortlessly connect job seekers with employers worldwide
             </Text>
           </View>
+          <Text
+            style={{
+              fontSize: 50,
+              fontWeight: 800,
+              color: COLORS.white,
+            }}
+          >
+            Are you ?
+          </Text>
+          {/* <Text
+            style={{
+              fontSize: 46,
+              fontWeight: 800,
+              color: COLORS.white,
+            }}
+          >
+            Started
+          </Text> */}
 
           <Button
-            title="Join Now"
+            title="Job Seeker"
             onPress={() => navigation.navigate("Signup")}
             style={{
               marginTop: 22,
               width: "100%",
             }}
           />
+
+          <Button
+            title="Employer"
+            onPress={() => navigation.navigate("Signup")}
+            style={{
+              marginTop: 22,
+              width: "100%",
+            }}
+          />
+
 
           <View
             style={{
