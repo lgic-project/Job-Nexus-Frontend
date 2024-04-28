@@ -182,12 +182,10 @@ const Login = ({ navigation }) => {
             justifyContent: "center",
           }}
         >
-
-
           <Text style={{ fontSize: 16, color: COLORS.black }}>
             Don't have an account ?{" "}
           </Text>
-          <Pressable onPress={() => navigation.navigate("Signup")}>
+          <Pressable onPress={() => navigation.navigate("Joblist")}>
             <Text
               style={{
                 fontSize: 16,
