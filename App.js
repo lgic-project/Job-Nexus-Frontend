@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Login, Signup, Welcome } from "./screens";
-// import JobList from "./Employer/JobList";
+import JobList from "./Employer/JobList";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,12 +31,13 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="Joblist"
+          name="JobList"
           component={JobList}
           options={{
-            headerShown: false,
+            title: "Job List",
           }}
         />
+
 
       </Stack.Navigator>
     </NavigationContainer>
