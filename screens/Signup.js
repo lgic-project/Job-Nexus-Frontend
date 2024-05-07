@@ -31,7 +31,7 @@ const Signup = ({ navigation }) => {
   const handleCertificateUpload = () => {
     // Logic for certificate upload
   };
-  
+
   const handleRegisterNow = () => {
     console.log("First Name:", firstName);
     console.log("Middle Name:", middleName);
