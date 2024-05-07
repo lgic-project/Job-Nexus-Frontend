@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     paddingVertical: 10,
     borderRadius: 5,
-    marginLeft: 10,
+    // marginLeft: 10,
   },
   favoriteButtonText: {
     color: "#fff",
@@ -246,8 +246,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     color: "#fff",
     backgroundColor: "#39B68D",
-    paddingHorizontal: 15,
-    marginHorizontal: 15,
+    paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 5,
     marginVertical: 10,
