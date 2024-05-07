@@ -62,7 +62,7 @@ const SignupJob = ({ navigation }) => {
           <View style={{ flexDirection: "row" }}>
             <TextInput
               placeholder="First Name *"
-              placeholderTextColor={COLORS.grey}
+              placeholderTextColor={COLORS.primary}
               onChangeText={(text) => setFirstName(text)}
               style={[styles.input, { flex: 1, marginRight: 5 }]}
             />
