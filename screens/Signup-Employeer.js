@@ -1,239 +1,170 @@
+import React, { useState } from "react";
 import {
   View,
   Text,
-  Image,
-  Pressable,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
-import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
-import Checkbox from "expo-checkbox";
 import Button from "../components/Button";
+import COLORS from "../constants/colors";
 
-const Signup = ({ navigation }) => {
-  const [isPasswordShown, setIsPasswordShown] = useState(true);
-  const [isChecked, setIsChecked] = useState(false);
+const SignupJob = ({ navigation }) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [resume, setResume] = useState(null);
+  const [contact, setContact] = useState("");
+  const [skills, setSkills] = useState("");
+  const [education, setEducation] = useState("");
+
+  const handleProfilePictureUpload = () => {
+    // Logic for profile picture upload
+  };
+
+  const handleResumeUpload = () => {
+    // Logic for resume upload
+  };
+
+  const handleRegisterNow = () => {
+    console.log("First Name:", firstName);
+    console.log("Last Name:", lastName);
+    console.log("Email:", email);
+    console.log("Password:", password);
+    console.log("Profile Picture:", profilePicture);
+    console.log("Resume:", resume);
+    console.log("Contact:", contact);
+    console.log("Skills:", skills);
+    console.log("Education:", education);
+  };
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-      <View style={{ flex: 1, marginHorizontal: 22 }}>
-        <View style={{ marginVertical: 22 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={{ flex: 1, paddingHorizontal: 20, paddingTop: 20 }}>
           <Text
             style={{
-              fontSize: 22,
+              fontSize: 24,
               fontWeight: "bold",
-              marginVertical: 12,
-              color: COLORS.black,
+              marginBottom: 20,
+              color: COLORS.primary,
+              textAlign: "center",
             }}
           >
-            Create Account
+            Job Seeker Registration
           </Text>
 
-          <Text
-            style={{
-              fontSize: 16,
-              color: COLORS.black,
-            }}
-          >
-            ..
-          </Text>
-        </View>
-
-        <View style={{ marginBottom: 12 }}>
-          <Text
-            style={{
-              fontSize: 16,
-              fontWeight: 400,
-              marginVertical: 8,
-            }}
-          >
-            Email address
-          </Text>
-
-          <View
-            style={{
-              width: "100%",
-              height: 48,
-              borderColor: COLORS.black,
-              borderWidth: 1,
-              borderRadius: 8,
-              alignItems: "center",
-              justifyContent: "center",
-              paddingLeft: 22,
-            }}
-          >
+          {/* First Name and Last Name */}
+          <View style={{ flexDirection: "row" }}>
             <TextInput
-              placeholder="Enter your email address"
-              placeholderTextColor={COLORS.black}
+              placeholder="First Name *"
+              placeholderTextColor={COLORS.grey}
+              onChangeText={(text) => setFirstName(text)}
+              style={[styles.input, { flex: 1, marginRight: 5 }]}
+            />
+            <TextInput
+              placeholder="Last Name *"
+              placeholderTextColor={COLORS.grey}
+              onChangeText={(text) => setLastName(text)}
+              style={[styles.input, { flex: 1, marginLeft: 5 }]}
+            />
+          </View>
+
+          {/* Email and Password */}
+          <View style={{ flexDirection: "row", marginTop: 20 }}>
+            <TextInput
+              placeholder="Email"
+              placeholderTextColor={COLORS.grey}
+              onChangeText={(text) => setEmail(text)}
+              style={[styles.input, { flex: 1, marginRight: 5 }]}
               keyboardType="email-address"
-              style={{
-                width: "100%",
-              }}
+            />
+            <TextInput
+              placeholder="Password *"
+              placeholderTextColor={COLORS.grey}
+              onChangeText={(text) => setPassword(text)}
+              style={[styles.input, { flex: 1, marginLeft: 5 }]}
+              secureTextEntry
             />
           </View>
-        </View>
 
-        <View style={{ marginBottom: 12 }}>
-          <Text
-            style={{
-              fontSize: 16,
-              fontWeight: 400,
-              marginVertical: 8,
-            }}
-          >
-            Mobile Number
-          </Text>
-
-          <View
-            style={{
-              width: "100%",
-              height: 48,
-              borderColor: COLORS.black,
-              borderWidth: 1,
-              borderRadius: 8,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              paddingLeft: 22,
-            }}
-          >
-            <TextInput
-              placeholder="Enter your phone number"
-              placeholderTextColor={COLORS.black}
-              keyboardType="numeric"
-              style={{
-                width: "80%",
-              }}
-            />
-          </View>
-        </View>
-
-        <View style={{ marginBottom: 12 }}>
-          <Text
-            style={{
-              fontSize: 16,
-              fontWeight: 400,
-              marginVertical: 8,
-            }}
-          >
-            Password
-          </Text>
-
-          <View
-            style={{
-              width: "100%",
-              height: 48,
-              borderColor: COLORS.black,
-              borderWidth: 1,
-              borderRadius: 8,
-              alignItems: "center",
-              justifyContent: "center",
-              paddingLeft: 22,
-            }}
-          >
-            <TextInput
-              placeholder="Enter your password"
-              placeholderTextColor={COLORS.black}
-              secureTextEntry={isPasswordShown}
-              style={{
-                width: "100%",
-              }}
-            />
-
-            <TouchableOpacity
-              onPress={() => setIsPasswordShown(!isPasswordShown)}
-              style={{
-                position: "absolute",
-                right: 12,
-              }}
-            >
-              {isPasswordShown == true ? (
-                <Ionicons name="eye-off" size={24} color={COLORS.black} />
-              ) : (
-                <Ionicons name="eye" size={24} color={COLORS.black} />
-              )}
+          {/* Profile Picture and Resume */}
+          <View style={{ flexDirection: "row", marginTop: 20 }}>
+            <TouchableOpacity onPress={handleProfilePictureUpload} style={[styles.fileUpload, { flex: 1, marginRight: 5 }]}>
+              <Text style={styles.uploadText}>
+                {profilePicture ? "Profile Picture Uploaded" : "Upload Profile Picture *"}
+              </Text>
+              <Ionicons name="cloud-upload" size={24} color={COLORS.primary} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleResumeUpload} style={[styles.fileUpload, { flex: 1, marginLeft: 5 }]}>
+              <Text style={styles.uploadText}>
+                {resume ? "Resume Uploaded" : "Upload Resume *"}
+              </Text>
+              <Ionicons name="cloud-upload" size={24} color={COLORS.primary} />
             </TouchableOpacity>
           </View>
-        </View>
 
-        <View
-          style={{
-            flexDirection: "row",
-            marginVertical: 6,
-          }}
-        >
-          <Checkbox
-            style={{ marginRight: 8 }}
-            value={isChecked}
-            onValueChange={setIsChecked}
-            color={isChecked ? COLORS.primary : undefined}
+          <TextInput
+            placeholder="Contact"
+            placeholderTextColor={COLORS.grey}
+            onChangeText={(text) => setContact(text)}
+            style={[styles.input, { marginTop: 20 }]}
           />
 
-          <Text>I aggree to the terms and conditions</Text>
-        </View>
-
-        <Button
-          title="Sign Up"
-          filled
-          style={{
-            marginTop: 18,
-            marginBottom: 4,
-          }}
-        />
-
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginVertical: 20,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              height: 1,
-              backgroundColor: COLORS.grey,
-              marginHorizontal: 10,
-            }}
+          <TextInput
+            placeholder="Skills"
+            placeholderTextColor={COLORS.grey}
+            onChangeText={(text) => setSkills(text)}
+            style={[styles.input, { marginTop: 20 }]}
+            multiline
           />
-          <Text style={{ fontSize: 14 }}>Or</Text>
-          <View
-            style={{
-              flex: 1,
-              height: 1,
-              backgroundColor: COLORS.grey,
-              marginHorizontal: 10,
-            }}
+
+          <TextInput
+            placeholder="Education"
+            placeholderTextColor={COLORS.grey}
+            onChangeText={(text) => setEducation(text)}
+            style={[styles.input, { height: 100, textAlignVertical: "top", marginTop: 20 }]}
+            multiline
+          />
+          <Button
+            title="Register Now"
+            onPress={handleRegisterNow}
+            filled
+            style={{ marginTop: 20 }}
           />
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            marginVertical: 22,
-          }}
-        >
-          <Text style={{ fontSize: 16, color: COLORS.black }}>
-            Already have an account
-          </Text>
-          <Pressable onPress={() => navigation.navigate("Login")}>
-            <Text
-              style={{
-                fontSize: 16,
-                color: COLORS.primary,
-                fontWeight: "bold",
-                marginLeft: 6,
-              }}
-            >
-              Login
-            </Text>
-          </Pressable>
-        </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default Signup;
+const styles = {
+  input: {
+    borderWidth: 1,
+    borderColor: COLORS.grey,
+    borderRadius: 10,
+    height: 50,
+    paddingHorizontal: 20,
+    marginBottom: 20,
+  },
+  fileUpload: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: COLORS.grey,
+    borderRadius: 10,
+    height: 50,
+    paddingHorizontal: 20,
+    backgroundColor: COLORS.lightGrey,
+  },
+  uploadText: {
+    color: COLORS.grey,
+  },
+};
+
+export default SignupJobSeeker;

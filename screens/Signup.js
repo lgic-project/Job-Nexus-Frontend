@@ -13,37 +13,33 @@ import COLORS from "../constants/colors";
 
 const Signup = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
-  const [certificate, setCertificate] = useState(null);
+  const [resume, setResume] = useState(null);
   const [contact, setContact] = useState("");
-  const [employerDescription, setEmployerDescription] = useState("");
+  const [skills, setSkills] = useState("");
+  const [education, setEducation] = useState("");
 
   const handleProfilePictureUpload = () => {
     // Logic for profile picture upload
   };
 
-  const handleCertificateUpload = () => {
-    // Logic for certificate upload
+  const handleResumeUpload = () => {
+    // Logic for resume upload
   };
 
   const handleRegisterNow = () => {
     console.log("First Name:", firstName);
-    console.log("Middle Name:", middleName);
     console.log("Last Name:", lastName);
-    console.log("Company Name:", companyName);
-    console.log("Address:", address);
     console.log("Email:", email);
     console.log("Password:", password);
     console.log("Profile Picture:", profilePicture);
-    console.log("Certificate:", certificate);
+    console.log("Resume:", resume);
     console.log("Contact:", contact);
-    console.log("Employer Description:", employerDescription);
+    console.log("Skills:", skills);
+    console.log("Education:", education);
   };
 
   return (
@@ -59,10 +55,10 @@ const Signup = ({ navigation }) => {
               textAlign: "center",
             }}
           >
-            Employer Registration
+            Job Seeker Registration
           </Text>
 
-          {/* First Name, Middle Name, Last Name */}
+          {/* First Name and Last Name */}
           <View style={{ flexDirection: "row" }}>
             <TextInput
               placeholder="First Name *"
@@ -71,31 +67,9 @@ const Signup = ({ navigation }) => {
               style={[styles.input, { flex: 1, marginRight: 5 }]}
             />
             <TextInput
-              placeholder="Middle Name *"
-              placeholderTextColor={COLORS.grey}
-              onChangeText={(text) => setMiddleName(text)}
-              style={[styles.input, { flex: 1, marginHorizontal: 5 }]}
-            />
-            <TextInput
               placeholder="Last Name *"
               placeholderTextColor={COLORS.grey}
               onChangeText={(text) => setLastName(text)}
-              style={[styles.input, { flex: 1, marginLeft: 5 }]}
-            />
-          </View>
-
-          {/* Company Name and Address */}
-          <View style={{ flexDirection: "row", marginTop: 20 }}>
-            <TextInput
-              placeholder="Company Name"
-              placeholderTextColor={COLORS.grey}
-              onChangeText={(text) => setCompanyName(text)}
-              style={[styles.input, { flex: 1, marginRight: 5 }]}
-            />
-            <TextInput
-              placeholder="Address"
-              placeholderTextColor={COLORS.grey}
-              onChangeText={(text) => setAddress(text)}
               style={[styles.input, { flex: 1, marginLeft: 5 }]}
             />
           </View>
@@ -118,7 +92,7 @@ const Signup = ({ navigation }) => {
             />
           </View>
 
-          {/* Profile Picture, Certificate, and Contact */}
+          {/* Profile Picture and Resume */}
           <View style={{ flexDirection: "row", marginTop: 20 }}>
             <TouchableOpacity onPress={handleProfilePictureUpload} style={[styles.fileUpload, { flex: 1, marginRight: 5 }]}>
               <Text style={styles.uploadText}>
@@ -126,9 +100,9 @@ const Signup = ({ navigation }) => {
               </Text>
               <Ionicons name="cloud-upload" size={24} color={COLORS.primary} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleCertificateUpload} style={[styles.fileUpload, { flex: 1, marginLeft: 5 }]}>
+            <TouchableOpacity onPress={handleResumeUpload} style={[styles.fileUpload, { flex: 1, marginLeft: 5 }]}>
               <Text style={styles.uploadText}>
-                {certificate ? "Certificate Uploaded" : "Upload Certificate *"}
+                {resume ? "Resume Uploaded" : "Upload Resume *"}
               </Text>
               <Ionicons name="cloud-upload" size={24} color={COLORS.primary} />
             </TouchableOpacity>
@@ -142,9 +116,17 @@ const Signup = ({ navigation }) => {
           />
 
           <TextInput
-            placeholder="Employer Description"
+            placeholder="Skills"
             placeholderTextColor={COLORS.grey}
-            onChangeText={(text) => setEmployerDescription(text)}
+            onChangeText={(text) => setSkills(text)}
+            style={[styles.input, { marginTop: 20 }]}
+            multiline
+          />
+
+          <TextInput
+            placeholder="Education"
+            placeholderTextColor={COLORS.grey}
+            onChangeText={(text) => setEducation(text)}
             style={[styles.input, { height: 100, textAlignVertical: "top", marginTop: 20 }]}
             multiline
           />
