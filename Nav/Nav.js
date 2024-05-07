@@ -2,6 +2,13 @@ import { View, Text } from "react-native";
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Login, Signup } from "../screens";
+import Profile from "../App/Profile/Profile";
+import Home from "../App/Home/Home";
+import More from "../App/More/More";
+import Jobs from "../App/Jobs/Jobs";
+import Favourite from "../App/Favourite/Favourite";
+import Notification from "../App/Notification/More/Notification";
+
 import { Ionicons } from "@expo/vector-icons";
 import COLORS from "../constants/colors";
 
@@ -19,34 +26,47 @@ const Nav = () => {
     >
       <Tab.Screen
         name="Home"
-        component={Login}
+        component={Home}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="home-outline" color={"#39B68D"} size={26} /> // Corrected icon name
           ),
         }}
       />
+
       <Tab.Screen
         name="Jobs"
-        component={Signup}
+        component={Jobs}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="briefcase-outline" color={"#39B68D"} size={26} />
           ),
         }}
       />
+
       <Tab.Screen
-        name="Favorite"
-        component={Signup}
+        name="Wishlist"
+        component={Favourite}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="heart-outline" color={"#39B68D"} size={26} />
           ),
         }}
       />
+
       <Tab.Screen
-        name="Notifications"
-        component={Signup}
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-outline" color={"#39B68D"} size={26} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Notification"
+        component={Notification}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons
@@ -57,9 +77,10 @@ const Nav = () => {
           ),
         }}
       />
+
       <Tab.Screen
         name="More"
-        component={Signup}
+        component={More}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons
