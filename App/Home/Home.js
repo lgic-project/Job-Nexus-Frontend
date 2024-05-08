@@ -7,6 +7,10 @@ export default class Home extends Component {
             <View>
                 <Text>Thissss isss
                     Home</Text>
+                <Text>Thissss isss
+                    Home</Text><Text>Thissss isss
+                        Home</Text><Text>Thissss isss
+                            Home</Text>
             </View>
         )
     }
