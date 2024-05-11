@@ -6,9 +6,6 @@ export default class Favourite extends Component {
         return (
             <View>
                 <Text>This is a Profile Page</Text>
-                <Text>This is a Profile Page</Text>
-                <Text>This is a Profile Page</Text>
-                <Text>This is a Profile Page</Text>
             </View>
         )
     }
