@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import Button from "../components/Button";
@@ -31,15 +25,8 @@ const Signup = ({ navigation }) => {
   };
 
   const handleRegisterNow = () => {
-    console.log("First Name:", firstName);
-    console.log("Last Name:", lastName);
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Profile Picture:", profilePicture);
-    console.log("Resume:", resume);
-    console.log("Contact:", contact);
-    console.log("Skills:", skills);
-    console.log("Education:", education);
+    // Navigate to the Login page
+    navigation.navigate('Login');
   };
 
   return (

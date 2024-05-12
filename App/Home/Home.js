@@ -1,11 +1,16 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
 
-export default class Favourite extends Component {
+export default class Home extends Component {
     render() {
         return (
             <View>
-                <Text>This is a Home Page</Text>
+                <Text>Thissss isss
+                    Home</Text>
+                <Text>Thissss isss
+                    Home</Text><Text>Thissss isss
+                        Home</Text><Text>Thissss isss
+                            Home</Text>
             </View>
         )
     }
