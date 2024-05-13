@@ -114,22 +114,6 @@ const SignupJob = ({ navigation }) => {
             onChangeText={(text) => setContact(text)}
             style={[styles.input, { marginTop: 20 }]}
           />
-
-          <TextInput
-            placeholder="Skills"
-            placeholderTextColor={COLORS.grey}
-            onChangeText={(text) => setSkills(text)}
-            style={[styles.input, { marginTop: 20 }]}
-            multiline
-          />
-
-          <TextInput
-            placeholder="Education"
-            placeholderTextColor={COLORS.grey}
-            onChangeText={(text) => setEducation(text)}
-            style={[styles.input, { height: 100, textAlignVertical: "top", marginTop: 20 }]}
-            multiline
-          />
           <Button
             title="Register Now"
             onPress={handleRegisterNow}
