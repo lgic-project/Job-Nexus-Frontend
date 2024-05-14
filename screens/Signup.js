@@ -17,15 +17,12 @@ const Signup = ({ navigation }) => {
   const [education, setEducation] = useState("");
 
   const handleProfilePictureUpload = () => {
-    // Logic for profile picture upload
   };
 
   const handleResumeUpload = () => {
-    // Logic for resume upload
   };
 
   const handleRegisterNow = () => {
-    // Navigate to the Login page
     navigation.navigate('Login');
   };
 
