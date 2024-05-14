@@ -8,10 +8,10 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
-import Button from "../components/Button";
-import COLORS from "../constants/colors";
+import Button from "../../components/Button";
+import COLORS from "../../constants/colors";
 
-const SignupJob = ({ navigation }) => {
+const Employersignup = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -40,8 +40,8 @@ const SignupJob = ({ navigation }) => {
     console.log("Contact:", contact);
     console.log("Skills:", skills);
     console.log("Education:", education);
+    navigation.navigate("Login");
   };
-
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -55,7 +55,7 @@ const SignupJob = ({ navigation }) => {
               textAlign: "center",
             }}
           >
-            Job Seeker Registration
+            Employer Registration
           </Text>
 
           {/* First Name and Last Name */}
@@ -94,13 +94,21 @@ const SignupJob = ({ navigation }) => {
 
           {/* Profile Picture and Resume */}
           <View style={{ flexDirection: "row", marginTop: 20 }}>
-            <TouchableOpacity onPress={handleProfilePictureUpload} style={[styles.fileUpload, { flex: 1, marginRight: 5 }]}>
+            <TouchableOpacity
+              onPress={handleProfilePictureUpload}
+              style={[styles.fileUpload, { flex: 1, marginRight: 5 }]}
+            >
               <Text style={styles.uploadText}>
-                {profilePicture ? "Profile Picture Uploaded" : "Upload Profile Picture *"}
+                {profilePicture
+                  ? "Profile Picture Uploaded"
+                  : "Upload Profile Picture *"}
               </Text>
               <Ionicons name="cloud-upload" size={24} color={COLORS.primary} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleResumeUpload} style={[styles.fileUpload, { flex: 1, marginLeft: 5 }]}>
+            <TouchableOpacity
+              onPress={handleResumeUpload}
+              style={[styles.fileUpload, { flex: 1, marginLeft: 5 }]}
+            >
               <Text style={styles.uploadText}>
                 {resume ? "Resume Uploaded" : "Upload Resume *"}
               </Text>
@@ -125,7 +133,6 @@ const SignupJob = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-
 const styles = {
   input: {
     borderWidth: 1,
@@ -151,4 +158,4 @@ const styles = {
   },
 };
 
-export default SignupJobSeeker;
+export default Employersignup;

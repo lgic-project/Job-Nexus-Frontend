@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Login, Signup, Welcome } from "./screens";
 import Nav from "./Nav/Nav";
+import Employersignup from "./screens/Auth/Employersignup";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,8 +32,8 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="Lignup"
-          component={Signup}
+          name="Employersignup"
+          component={Employersignup}
           options={{
             headerShown: false,
           }}
