@@ -1,7 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Login, Signup, Welcome } from "./screens";
-import JobList from "./Employer/JobList";
 import Nav from "./Nav/Nav";
 
 const Stack = createNativeStackNavigator();
