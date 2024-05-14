@@ -21,7 +21,7 @@ const Employersignup = () => {
   const [contact, setContact] = useState("");
   const [companyDescription, setCompanyDescription] = useState("");
   const [companyProfile, setCompanyProfile] = useState(null);
-  const [Certificate, setCertificate] = useState(null);
+  const [resume, setResume] = useState(null);
 
   const handleCompanyProfileUpload = (event) => {
     const file = event.target.files[0];
@@ -33,7 +33,10 @@ const Employersignup = () => {
   const handleResumeUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setCertificate(URL.createObjectURL(file));
+      setResume(URL.createObjectURL(file));
+      if (file) {
+        setResume(URL.createObjectURL(file));
+      }
     }
   };
 
@@ -46,9 +49,10 @@ const Employersignup = () => {
     console.log("Address:", address);
     console.log("Contact:", contact);
     console.log("Company Profile:", companyProfile);
-    console.log("Certificate:", Certificate);
+    console.log("Resume:", resume);
 
     console.log("Company Description:", companyDescription);
+    // Your navigation logic here
   };
 
   return (

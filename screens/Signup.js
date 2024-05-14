@@ -17,6 +17,7 @@ const Signup = ({ navigation }) => {
   const [education, setEducation] = useState("");
 
   const handleProfilePictureUpload = () => {
+
   };
 
   const handleResumeUpload = () => {
@@ -41,35 +42,38 @@ const Signup = ({ navigation }) => {
           >
             Job Seeker Registration
           </Text>
-
-          {/* First Name and Last Name */}
           <View style={{ flexDirection: "row" }}>
             <TextInput
               placeholder="First Name *"
-              placeholderTextColor={COLORS.grey}
+              placeholderTextColor={COLORS.bright}
               onChangeText={(text) => setFirstName(text)}
               style={[styles.input, { flex: 1, marginRight: 5 }]}
             />
             <TextInput
+              placeholder="Middle Name"
+              placeholderTextColor={COLORS.bright}
+              onChangeText={(text) => setMiddleName(text)}
+              style={[styles.input, { flex: 1, marginHorizontal: 5 }]}
+            />
+            <TextInput
               placeholder="Last Name *"
-              placeholderTextColor={COLORS.grey}
+              placeholderTextColor={COLORS.bright}
               onChangeText={(text) => setLastName(text)}
               style={[styles.input, { flex: 1, marginLeft: 5 }]}
             />
           </View>
 
-          {/* Email and Password */}
           <View style={{ flexDirection: "row", marginTop: 20 }}>
             <TextInput
               placeholder="Email"
-              placeholderTextColor={COLORS.grey}
+              placeholderTextColor={COLORS.bright}
               onChangeText={(text) => setEmail(text)}
               style={[styles.input, { flex: 1, marginRight: 5 }]}
               keyboardType="email-address"
             />
             <TextInput
               placeholder="Password *"
-              placeholderTextColor={COLORS.grey}
+              placeholderTextColor={COLORS.bright}
               onChangeText={(text) => setPassword(text)}
               style={[styles.input, { flex: 1, marginLeft: 5 }]}
               secureTextEntry
@@ -94,14 +98,14 @@ const Signup = ({ navigation }) => {
 
           <TextInput
             placeholder="Contact"
-            placeholderTextColor={COLORS.grey}
+            placeholderTextColor={COLORS.bright}
             onChangeText={(text) => setContact(text)}
             style={[styles.input, { marginTop: 20 }]}
           />
 
           <TextInput
             placeholder="Skills"
-            placeholderTextColor={COLORS.grey}
+            placeholderTextColor={COLORS.bright}
             onChangeText={(text) => setSkills(text)}
             style={[styles.input, { marginTop: 20 }]}
             multiline
@@ -109,7 +113,7 @@ const Signup = ({ navigation }) => {
 
           <TextInput
             placeholder="Education"
-            placeholderTextColor={COLORS.grey}
+            placeholderTextColor={COLORS.bright}
             onChangeText={(text) => setEducation(text)}
             style={[styles.input, { height: 100, textAlignVertical: "top", marginTop: 20 }]}
             multiline
@@ -129,7 +133,7 @@ const Signup = ({ navigation }) => {
 const styles = {
   input: {
     borderWidth: 1,
-    borderColor: COLORS.grey,
+    borderColor: COLORS.bright,
     borderRadius: 10,
     height: 50,
     paddingHorizontal: 20,
@@ -140,14 +144,14 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: COLORS.grey,
+    borderColor: COLORS.bright,
     borderRadius: 10,
     height: 50,
     paddingHorizontal: 20,
-    backgroundColor: COLORS.lightGrey,
+    backgroundColor: COLORS.lightbright,
   },
   uploadText: {
-    color: COLORS.grey,
+    color: COLORS.bright,
   },
 };
 
