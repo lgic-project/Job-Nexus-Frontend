@@ -31,6 +31,13 @@ export default function App() {
           }}
         />
         <Stack.Screen
+          name="Lignup"
+          component={Signup}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
           name="Nav"
           component={Nav}
           options={{
