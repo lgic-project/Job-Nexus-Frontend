@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text } from 'react-native';
 
 export default class JobPostingForm extends Component {
     constructor(props) {
@@ -34,6 +34,7 @@ export default class JobPostingForm extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text style={styles.title}>Post a Vacancy</Text>
                 <View style={styles.formContainer}>
                     <View style={styles.row}>
                         <TextInput
@@ -66,19 +67,22 @@ export default class JobPostingForm extends Component {
                         <TextInput
                             style={[styles.input, { flex: 1 }]}
                             placeholder="Max Salary"
-                            onChangeText={(text) => this.setState({ maxSalary: text })}
+                            onChangeText={(text) => this.setState({ maxSalary: text.replace(/[^0-9]/g, '') })} // Accept numbers only
+                            keyboardType="numeric" // Show numeric keyboard
                         />
                         <TextInput
                             style={[styles.input, { flex: 1 }]}
                             placeholder="Min Salary"
-                            onChangeText={(text) => this.setState({ minSalary: text })}
+                            onChangeText={(text) => this.setState({ minSalary: text.replace(/[^0-9]/g, '') })} // Accept numbers only
+                            keyboardType="numeric" // Show numeric keyboard
                         />
                     </View>
                     <View style={styles.row}>
                         <TextInput
                             style={[styles.input, { flex: 1 }]}
-                            placeholder="Contact (dd-mm-yyyy)"
-                            onChangeText={(text) => this.setState({ contact: text })}
+                            placeholder="Contact"
+                            onChangeText={(text) => this.setState({ contact: text.replace(/[^0-9]/g, '') })} // Accept numbers only
+                            keyboardType="phone-pad" // Show phone number keyboard
                         />
                         <TextInput
                             style={[styles.input, { flex: 1 }]}
@@ -121,6 +125,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#f0f0f0',
         padding: 20,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
     },
     formContainer: {
         width: '100%',
