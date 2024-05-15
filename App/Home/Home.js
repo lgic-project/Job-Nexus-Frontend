@@ -1,102 +1,82 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 export default class Home extends Component {
     render() {
+        const { navigation } = this.props;
         return (
-            <ImageBackground
-                source={require('../Home/Images/1.jpeg')} // Replace 'background.jpg' with your actual background image
-                style={styles.backgroundImage}
-            >
-                <View style={styles.overlay}>
-                    <View style={styles.searchContainer}>
-                        <TextInput
-                            style={styles.searchInput}
-                            placeholder="Search Jobs"
-                            placeholderTextColor="#ffffff"
-                            onChangeText={(text) => console.log('Searching for:', text)}
-                        />
-                        <TouchableOpacity
-                            style={styles.searchButton}
-                            onPress={() => console.log('Search button pressed')}
-                        >
-                            <Text style={styles.searchButtonText}>Search</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.content}>
-                        <Text style={styles.title}>Welcome back, Employee!</Text>
-                        <Text style={styles.subtitle}>Explore job opportunities and apply for your dream job.</Text>
-                        <TouchableOpacity
-                            style={styles.exploreButton}
-                            onPress={() => console.log('Explore Jobs button pressed')}
-                        >
-                            <Text style={styles.buttonText}>Explore Jobs</Text>
-                        </TouchableOpacity>
-                    </View>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Image
+                        source={require('../Home/Images/3.jpg')} // Replace with your logo image
+                        style={styles.logo}
+                    />
+                    <Text style={styles.headerText}>Job Portal</Text>
                 </View>
-            </ImageBackground>
+                <View style={styles.content}>
+                    <Text style={styles.title}>Welcome back, Employee!</Text>
+                    <Text style={styles.subtitle}>Explore job opportunities and apply for your dream job.</Text>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => navigation.navigate('Jobs')}
+                    >
+                        <Text style={styles.buttonText}>Explore Jobs</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    backgroundImage: {
+    container: {
         flex: 1,
-        resizeMode: 'cover',
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: '#ffffff',
     },
-    overlay: {
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        padding: 20,
-    },
-    searchContainer: {
+    header: {
         flexDirection: 'row',
-        marginBottom: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
+        backgroundColor: '#007260', // Primary color
     },
-    searchInput: {
-        flex: 1,
-        backgroundColor: '#3498db',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 5,
-        color: '#ffffff',
+    logo: {
+        width: 40,
+        height: 40,
+        marginRight: 10,
     },
-    searchButton: {
-        backgroundColor: '#3498db',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        marginLeft: 10,
-        borderRadius: 5,
-    },
-    searchButtonText: {
-        color: '#ffffff',
-        fontSize: 16,
+    headerText: {
+        fontSize: 24,
         fontWeight: 'bold',
+        color: '#ffffff', // White color for text
     },
     content: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        padding: 20,
     },
     title: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#ffffff',
-        marginBottom: 10,
+        marginBottom: 20,
+        textAlign: 'center',
+        color: '#333333', // Dark text color
     },
     subtitle: {
         fontSize: 16,
-        color: '#ffffff',
-        marginBottom: 20,
+        color: '#666666', // Medium text color
+        marginBottom: 30,
         textAlign: 'center',
     },
-    exploreButton: {
-        backgroundColor: '#3498db',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 5,
+    button: {
+        backgroundColor: '#39B68D', // Secondary color
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        borderRadius: 25,
+        elevation: 3,
     },
     buttonText: {
         color: '#ffffff',
